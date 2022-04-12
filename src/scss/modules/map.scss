@@ -1,0 +1,22 @@
+//================================================================================
+.map {
+	width: rem(800);
+	height: rem(450);
+	background-color: #ddd;
+	[class*="copyrights-pane"] {
+		display: none !important;
+	}
+	[class*="ground-pane"] {
+		filter: grayscale(1);
+	}
+}
+.balloon {
+	// .balloon__address
+	&__address {
+		font-weight: 700;
+	}
+	// .balloon__contacts
+	&__contacts {
+	}
+}
+//================================================================================

@@ -1,0 +1,36 @@
+//================================================================================
+.tabs {
+	// .tabs__titles
+	&__titles {
+		margin-bottom: rem(15);
+		@media (min-width: $mobile) {
+			display: flex;
+		}
+	}
+	// .tabs__title
+	&__title {
+		display: block;
+		width: 100%;
+		min-height: rem(64);
+		background-color: #ddd;
+		&.active {
+			background-color: #aaa;
+		}
+		@media (min-width: $mobile) {
+			flex-basis: 33.333%;
+		}
+	}
+	// .tabs__body
+	&__body {
+		padding: rem(20);
+		background-color: #ddd;
+	}
+	// .tabs__content
+	&__content {
+		&.hidden {
+			display: none;
+		}
+	}
+}
+
+//================================================================================

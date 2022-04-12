@@ -1,0 +1,115 @@
+// ВОЗМОЖНОСТИ SCSS ==============================================================
+
+// Математические функции
+@use "sass:math";
+
+// Функции и миксины
+@import "./modules/mixins";
+
+// ШРИФТЫ ========================================================================
+@import "fonts";
+
+$fontFamily: "OpenSans";
+$fontSize: rem(18);
+$lineHeight: math.div(32, 18);
+
+// ЦВЕТА =========================================================================
+:root {
+	--color-main: #fff;
+	--color-accent: #ffa343;
+	--color-accent-light: #ffc178;
+}
+
+// Светлая и темная темы
+// @import "./modules/themes/light";
+// @import "./modules/themes/dark";
+
+// КОНТЕЙНЕР =====================================================================
+$minWidth: 320;
+$maxWidth: 1920;
+$maxWidthContainer: 1462;
+$maxWidthContainerFluid: 1752;
+$containerPadding: 30;
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// БРЕЙКПОИНТЫ ===================================================================
+$pc: em($containerWidth);
+$tablet: em(991.98);
+$mobile: em(767.98);
+$mobileSmall: em(479.98);
+
+// ОБНУЛЕНИЕ И БАЗОВЫЕ СТИЛИ =====================================================
+@import "./modules/null";
+
+body {
+	background-color: #000;
+	// Блокировка скролла
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+	}
+}
+
+[class*="__container"] {
+	max-width: rem($maxWidthContainer);
+	width: 100%;
+	box-sizing: content-box;
+	margin: 0 auto;
+	padding: 0 rem(math.div($containerPadding, 2));
+}
+[class*="__container-fluid"] {
+	width: auto;
+	max-width: rem($maxWidthContainerFluid);
+}
+
+// Оболочка
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	> main {
+		flex: 1 1 auto;
+	}
+	// Фикс для некоторых слайдеров
+	> * {
+		min-width: 0;
+	}
+}
+
+// ОБЩИЕ СТИЛИ ===================================================================
+@import "common";
+
+// МОДУЛИ ========================================================================
+@import "main";
+
+// ГЛАВНЫЕ БЛОКИ =================================================================
+@import "header";
+@import "footer";
+
+// СТРАНИЦЫ ======================================================================
+@import "home";
+
+// PAGE ЭЛЕМЕНТЫ =================================================================
+.page {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	// .page__wrapper
+	&__wrapper {
+		& > .swiper-slide {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex: 1 0 100%;
+			padding: rem(60) 0;
+		}
+	}
+	// .page__about
+	&__about {
+		align-items: stretch !important;
+		padding: 0 !important;
+	}
+}

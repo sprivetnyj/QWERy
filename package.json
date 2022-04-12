@@ -1,0 +1,39 @@
+{
+	"private": true,
+	"main": "gulpfile.js",
+	"type": "module",
+	"scripts": {
+		"dev": "gulp",
+		"build": "gulp build --build"
+	},
+	"devDependencies": {
+		"browser-sync": "latest",
+		"del": "latest",
+		"gulp": "latest",
+		"gulp-autoprefixer": "latest",
+		"gulp-cheerio": "latest",
+		"gulp-clean-css": "latest",
+		"gulp-file-include": "latest",
+		"gulp-group-css-media-queries": "latest",
+		"gulp-if": "latest",
+		"gulp-imagemin": "latest",
+		"gulp-newer": "latest",
+		"gulp-rename": "latest",
+		"gulp-replace": "latest",
+		"gulp-sass": "latest",
+		"gulp-svg-sprite": "latest",
+		"gulp-svgmin": "latest",
+		"gulp-ttf2woff2": "latest",
+		"gulp-version-number": "latest",
+		"gulp-webp": "latest",
+		"gulp-webp-html-nosvg": "latest",
+		"gulp-webpcss": "latest",
+		"inputmask": "latest",
+		"sass": "latest",
+		"simplebar": "latest",
+		"swiper": "latest",
+		"webp-converter": "2.2.3",
+		"webpack": "latest",
+		"webpack-stream": "latest"
+	}
+}

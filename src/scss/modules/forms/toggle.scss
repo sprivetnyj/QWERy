@@ -1,0 +1,33 @@
+//================================================================================
+input[type="checkbox"].toggle {
+	cursor: pointer;
+	appearance: none;
+	position: relative;
+	width: rem(40);
+	height: rem(20);
+	margin-right: rem(5);
+	color: #999;
+	border-radius: rem(10);
+	background-color: currentColor;
+	transition: color 0.3s;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: rem(2);
+		width: rem(16);
+		height: rem(16);
+		transform: translate(0, -50%);
+		border-radius: 50%;
+		background-color: #fff;
+		transition: left 0.3s, transform 0.3s;
+	}
+	&:checked {
+		color: #000;
+		&::before {
+			left: calc(100% - rem(2));
+			transform: translate(-100%, -50%);
+		}
+	}
+}
+//================================================================================

@@ -1,0 +1,38 @@
+//================================================================================
+.theme {
+	overflow: hidden;
+	display: inline-grid;
+	gap: rem(5);
+	grid-template-columns: repeat(auto-fit, 1fr);
+	grid-auto-flow: column;
+	padding: rem(3);
+	border-radius: rem(50);
+	border: rem(1) solid var(--text-color);
+	background-color: var(--bg-color);
+	// .theme__radio
+	&__radio {
+		cursor: pointer;
+		position: relative;
+		appearance: none;
+		width: rem(32);
+		height: rem(32);
+		border-radius: 50%;
+		background-color: #fff;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: rem(24);
+	}
+	// .theme__radio--light
+	&__radio--light {
+		background-image: url("@img/icons/icons.svg#light");
+	}
+	// .theme__radio--auto
+	&__radio--auto {
+		background-image: url("@img/icons/icons.svg#auto");
+	}
+	// .theme__radio--dark
+	&__radio--dark {
+		background-image: url("@img/icons/icons.svg#dark");
+	}
+}
+//================================================================================

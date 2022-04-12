@@ -1,0 +1,42 @@
+//================================================================================
+.spoilers {
+	// .spoilers__item
+	&__item {
+	}
+	// .spoilers__title
+	&__title {
+		position: relative;
+		width: 100%;
+		padding: rem(10) rem(15);
+		display: flex;
+		gap: rem(15);
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid #999;
+		background-color: #ddd;
+		&.active {
+			&::after {
+				transform: rotate(180deg);
+			}
+		}
+		&::after {
+			content: "";
+			display: block;
+			width: rem(20);
+			height: rem(20);
+			transition: transform 0.3s;
+			background-image: url("@img/icons/icons.svg#arrow-bottom");
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
+	// .spoilers__content
+	&__content {
+		padding: rem(10) rem(15);
+		background-color: #aaa;
+	}
+	// .spoilers__text
+	&__text {
+	}
+}
+//================================================================================

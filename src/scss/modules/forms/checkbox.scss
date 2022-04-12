@@ -1,0 +1,17 @@
+//================================================================================
+input[type="checkbox"]:not(.toggle) {
+	cursor: pointer;
+	appearance: none;
+	position: relative;
+	width: rem(20);
+	height: rem(20);
+	color: #000;
+	border: rem(2) solid currentColor;
+	&:checked {
+		background-color: currentColor;
+		background-image: url("@img/icons/icons.svg#check");
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+}
+//================================================================================

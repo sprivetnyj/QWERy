@@ -1,0 +1,94 @@
+//================================================================================
+.select {
+	position: relative;
+	// .select__wrapper
+	&__wrapper {
+		position: relative;
+	}
+	// .select__native
+	&__native {
+		// отключаем дефолтную стрелочку
+		appearance: none;
+		position: relative;
+		max-width: rem(320);
+		width: 100%;
+		height: rem(45);
+		padding: rem(10);
+		border: rem(1) solid #000;
+		background-color: #fff;
+		background-image: url("@img/icons/icons.svg#arrow-bottom");
+		// rem(10) - padding-right ^
+		background-position: center right rem(10);
+		background-repeat: no-repeat;
+		background-size: rem(15);
+		&:focus + .select__custom {
+			display: none;
+		}
+	}
+	// .select__custom
+	&__custom {
+		position: absolute;
+		top: 0;
+		left: 0;
+		max-width: rem(320);
+		width: 100%;
+		height: rem(45);
+		&.active {
+			.select__options {
+				display: block;
+			}
+		}
+	}
+	// .select__trigger
+	&__trigger {
+		cursor: pointer;
+		position: relative;
+		padding: rem(10);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border: rem(1) solid #000;
+		background-color: #fff;
+		&::after {
+			content: "";
+			width: rem(15);
+			height: rem(15);
+			background-image: url("@img/icons/icons.svg#arrow-bottom");
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
+	// .select__options
+	&__options {
+		z-index: 5;
+		display: none;
+		position: absolute;
+		top: rem(45);
+		left: 0;
+		width: 100%;
+		border: rem(1) solid #000;
+		background-color: #fff;
+	}
+	// .select__option
+	&__option {
+		cursor: default;
+		padding: rem(5) rem(10);
+		&.active {
+			background-color: #ddd;
+		}
+		&.hover {
+			color: #fff;
+			background-color: #000;
+		}
+		&:not(:last-child) {
+			border-bottom: rem(1) solid #000;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: #fff;
+				background-color: #000;
+			}
+		}
+	}
+}
+//================================================================================

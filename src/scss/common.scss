@@ -1,0 +1,223 @@
+// КЛАССЫ ========================================================================
+
+// Визуальное скрытие
+.visually-hidden {
+	position: absolute;
+	margin: -1px;
+	clip-path: inset(50%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+}
+
+// Адаптивное изображение
+.ibg {
+	position: relative;
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+// Анимированное появление
+.anim {
+	opacity: 0;
+	transform: translate(var(--x), var(--y));
+	&.active {
+		animation: scroll var(--dur) var(--del) forwards;
+		@keyframes scroll {
+			to {
+				opacity: 1;
+				transform: translate(0);
+			}
+		}
+	}
+}
+//================================================================================
+.button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: rem(70);
+	padding: 0 rem(70);
+	border-radius: rem(8);
+	font-size: rem(17);
+	line-height: math.div(22, 17);
+	font-weight: 700;
+	color: #000;
+	background-color: var(--color-accent);
+	transition: background-color 0.3s;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: var(--color-main);
+		}
+	}
+}
+.logo {
+	// .logo__content
+	&__content {
+		font-size: rem(24);
+		line-height: math.div(32, 24);
+		font-weight: 700;
+		transition: color 0.3s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--color-accent-light);
+			}
+		}
+		&--large {
+			@include adaptiveValue("font-size", 48, 24);
+		}
+	}
+}
+.section-title {
+	font-size: rem(18);
+	line-height: math.div(24, 18);
+	letter-spacing: em(6, 18);
+	text-transform: uppercase;
+	font-weight: 700;
+	color: var(--color-accent-light);
+	@media (min-width: $mobile) {
+		position: relative;
+		&::before,
+		&::after {
+			content: "";
+			display: inline-block;
+			width: rem(72);
+			height: rem(2);
+			vertical-align: middle;
+			background-color: var(--color-accent-light);
+		}
+		&--double {
+			&::after {
+				margin-left: rem(32);
+				transform: translate(0, 50%);
+			}
+		}
+		&::before {
+			margin-right: rem(32);
+			transform: translate(0, -50%);
+		}
+	}
+}
+.section-subtitle {
+	@include adaptiveValue("font-size", 64, 32);
+	line-height: math.div(87, 64);
+	font-weight: 700;
+}
+.section-link {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	color: var(--color-accent-light);
+	transition: color 0.3s;
+	svg {
+		width: rem(16);
+		height: rem(24);
+		margin-left: rem(12);
+		transform: rotate(-90deg);
+		transition: transform 0.3s;
+		fill: currentColor;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			color: var(--color-main);
+			svg {
+				transform: translate(30%, 0) rotate(-90deg);
+			}
+		}
+	}
+}
+.social {
+	// .social__list
+	&__list {
+		display: flex;
+		gap: rem(20);
+	}
+	// .social__link
+	&__link {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: color 0.3s;
+		svg {
+			width: rem(24);
+			height: rem(24);
+			fill: currentColor;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--color-accent);
+			}
+		}
+	}
+}
+.half-block {
+	&--reverse {
+		flex-direction: row-reverse;
+		.half-block__img {
+			img {
+				object-position: center 30%;
+			}
+			@media (min-width: em(1060)) {
+				margin-left: rem(232);
+				margin-right: 0;
+				margin-bottom: 0;
+				@media (max-width: $pc) {
+					margin-left: rem(60);
+				}
+			}
+		}
+	}
+	@media (min-width: em(1060)) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	// .half-block__img
+	&__img {
+		overflow: hidden;
+		background-color: #111;
+		padding-bottom: 56.25%;
+		margin: 0 rem(-15) rem(30);
+		img {
+			object-position: bottom;
+		}
+		@media (min-width: em(1060)) {
+			flex-shrink: 0;
+			@include adaptiveValue("flex-basis", 598, 398);
+			padding-bottom: rem(720);
+			margin-right: rem(232);
+			margin-left: 0;
+			margin-bottom: 0;
+			@media (max-width: $pc) {
+				margin-right: rem(60);
+			}
+		}
+	}
+	// .half-block__title
+	&__title {
+		margin-bottom: em(27, 18);
+	}
+	// .half-block__subtitle
+	&__subtitle {
+		margin-bottom: em(27, 64);
+		@media (min-width: em(1060)) {
+			padding-right: rem(77);
+		}
+	}
+	// .half-block__text
+	&__text {
+		margin-bottom: em(27, 18);
+	}
+}
+//================================================================================

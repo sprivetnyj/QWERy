@@ -1,0 +1,28 @@
+//================================================================================
+input[type="radio"] {
+	cursor: pointer;
+	appearance: none;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: rem(20);
+	height: rem(20);
+	margin-right: rem(5);
+	color: #999;
+	border: rem(2) solid currentColor;
+	border-radius: 50%;
+	&:checked {
+		color: #000;
+		border: rem(2) solid currentColor;
+		&::before {
+			content: "";
+			display: block;
+			width: rem(12);
+			height: rem(12);
+			background-color: currentColor;
+			border-radius: 50%;
+		}
+	}
+}
+//================================================================================
